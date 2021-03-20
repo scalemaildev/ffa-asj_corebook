@@ -1,2 +1,3 @@
 # ffa-asj_corebook
-FFA:ASJ Corebook
+Fires Far Away: A Solitaire Journey
+Corebook
