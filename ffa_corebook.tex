@@ -61,7 +61,19 @@
 
 \newpage
 
+\vspace*{\fill}
+
+\begin{center}
+This page intentionally left blank.\\
+\ \\
+\end{center}
+
+\vspace*{\fill}
+
+\pagebreak
+
 \AddToShipoutPictureBG{\includegraphics[width=\paperwidth,height=\paperheight]{misc/background.pdf}}
+
 \begin{multicols*}{2}
 \setlength\parindent{0pt}
 \pagenumbering{arabic}
@@ -271,7 +283,7 @@ When reading through a chapter, a chevron (>) designates a chapter action. Chapt
 Occasionally, the chapter may restrict progress or grant the player extra progression options based on a check. This most often comes in the form of gates, where some physical portal is locked until the character acquires its key. Other times this might be a strict stat check, like only allowing a character with 12+ \refto{INT} to make sense of a magical tome. A check may also reference the character’s past actions via their notes.\\
 
 \textbf{Checks Roster:}\\
-An option prefaced by \emph{italicized text} designates a check; this is a requirement that must be fulfilled to take its subsequent chapter action. For example, \emph{8+ INT} designates a chapter action that can only be taken by characters with an \textbf{INT} score of 8 or higher. A check might also ask for a note via its code, such as \emph{Note 123a}, or refer to a certain item the character must possess.\\
+An option prefaced by \emph{italicized text} designates a check; this is a requirement that must be fulfilled to take its subsequent chapter action. For example, \emph{8+ INT} designates a chapter action that can only be taken by characters with an \textbf{INT} score of 8 or higher. A check might also ask for a note via its code, such as \emph{123a}, or refer to a certain item the character must possess.\\
 
 \emph{AND/OR} can be used to require multiple checks for a chapter action, or at least one of them.\\
 
@@ -290,8 +302,11 @@ The above concepts are formally known as Boolean logic, and all Boolean concepts
 \subsubsection{Finding Equipment}
 Throughout a chapter’s CYOA gameplay, the character may be presented with equipment and items. This gear can only be gathered once, even if the character makes repeated trips to the section in which they are available. 
 
+\subsubsection{Mapping Progress}
+While not a requirement, it may be helpful for players to keep a piece of scratch paper for mapping out their explorations.
+
 \subsubsection{Notes and Permanent Notes}
-The player is frequently asked to takes notes in service of the scenario’s CYOA gameplay. Notes are written along with a code (like \emph{Note 123a - Got key}) and are referenced only by this code to avoid spoilers. Most notes are erased at the end of each chapter to prevent the record sheet from becoming cluttered with information that will never be referenced again.\\
+The player is frequently asked to takes notes in service of the scenario’s CYOA gameplay. Notes are written along with a code (like \emph{123a - Got key}) and are referenced only by this code to avoid spoilers. Most notes are erased at the end of each chapter to prevent the record sheet from becoming cluttered with information that will never be referenced again.\\
 However, notes bracketed by exclamation marks (like \emph{!!123b!! - Killed Patches}) are permanent notes, and may be referenced in other chapters. These are written in a separate section of the record sheet to prevent them from getting erased accidentally.
 
 \subsubsection{\emph{Short Reprieves}}
@@ -1646,7 +1661,7 @@ Butcher’s Cleaver & 1 & 1 S & 1 & 1H & 1 & - & STR - 3|D\newline DEX - 3|D & C
 Caestus & 2 & 2 C & 1 & 1H & 1 & - & STR - 5|D\newline DEX - 5|D & Flurry & If this weapon assigns 3 damage to \refto{HP} slots in a single attack, it also inflicts 1 Bleed\newline No 2H\\
 Farming Scythe & 2 & 3 S & 3 & 2H & 2-3 & 1 & STR - 6|D\newline DEX - 4|E & Cut,\newline Pull & Sweep \refto{SP} cost is reduced to Wep+1\newline Spin \refto{SP} cost is reduced to Wep+2\\
 Felling Axe & 2 & 3 S & 2 & 2H & 1 & 2 & STR - 6|D\newline DEX - 6|D & Shieldbreak & N/A\\
-Fist & 2 & 1 C & - & 1H & 1 & - & N/A & Flurry & Cannot be Broken\newline Increases damage by 1 at 14 \refto{STR}/22 \refto{STR}\newline Used if nothing equipped\newline No 2H\\
+Fist & 2 & 1 C & - & 1H & 1 & - & N/A & N/A & Cannot be Broken\newline Increases damage by 1 at 14 \refto{STR}/22 \refto{STR}\newline Used if nothing equipped\newline No 2H\\
 Lantern & 2 & 2 C & 2 & 1H & 1 & - & N/A & Light/Douse & Counts as a light source when lit\newline Becomes doused if used to attack\\
 Loose\newline Cobblestone & 1 & 1 C & - & 1H & 1 & - & STR - 3|D\newline DEX - 3|E & N/A & \reftoit{Ephemeral}\newline Cannot be Broken\newline No 2H\\
 Katar & 2 & 2 P & 2 & 1H & 1 & 1 & STR - 7|C\newline DEX - 9|C & Backstab, Cut,\newline Lunge & No 2H\\
@@ -2428,6 +2443,7 @@ Enjoy your game!\\
 \item Added light sources and overspending
 \item Added table of content entries for more sections
 \item More enemy behavior clarifications
+\item Removed Flurry from Fist weapon
 \end{itemize}
 \subsubsection*{2/15/2021 - 0.98}
 \begin{itemize}
