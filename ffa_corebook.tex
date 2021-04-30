@@ -314,7 +314,7 @@ The above concepts are formally known as Boolean logic, and all Boolean concepts
 \end{tcolorbox}
 
 \subsubsection{Finding Equipment}
-Throughout a chapter’s CYOA gameplay, the character may be presented with equipment and items. This gear can only be gathered once, even if the character makes repeated trips to the reading in which they are available. 
+Throughout a chapter’s CYOA gameplay, the character may be presented with equipment and items. This gear can only be acquired once per chapter action, even if the character makes repeated trips to the reading in which they are available. 
 
 \subsubsection{Mapping Progress}
 While not a requirement, it may be helpful for players to keep a piece of scratch paper for mapping out their explorations.
@@ -569,7 +569,8 @@ An ‘!’ designates some implicit movement that must be taken.\\
 A hyphenated value such as 1-2 also designates some minimum necessary movement for an action.
 
 \subsubsection{Overspent Actions}
-When the \refto{SP} or \refto{FP} cost of an action is appended by a ‘+’ sign, it can be overspent up to double the original cost.
+When a \refto{SP} or \refto{FP} cost is appended by a ‘+’ sign, it can be overspent up to double its original cost.\\
+\emph{The player may not ‘burn dice’ by overspending them on an action past its maximum cost.}
 
 \subsubsection{Ranged Attacks}
 Attack ranges are given as flat numbers representing the attack’s maximum distance in tiles. For ranges with hyphenated numbers, such as 2-3, the first number represents the attack’s minimum range.\\
@@ -629,7 +630,7 @@ Not all encounters will contain retreat tiles.
 \hypertarget{stamina pool}{}
 The character commits actions and reactions during an encounter by spending \refto{SP} dice from their \reftoit{stamina pool}. The number of \refto{SP} dice available is determined by the character’s \refto{END} stat.
 
-\subsubsection{Straight \& Snaking}
+\subsubsection{Straight or Snaking}
 Straight or snaking refers to possible routes for line-type area of effects, or the directions an entity might move while making a charging-type attack.\\
 Here is a visual example of straight and snaking patterns for a range 3 attack:
 \begin{center}
@@ -645,9 +646,9 @@ A \reftoit{Sudden} \emph{counterbeat} does not give the character the opportunit
 
 \subsubsection{Two vs. One-Handing Weapons}
 Most weapons can be held either in a single hand, or two-handed. The exception to this is ranged weapons like bows, and some special or large weapons.\\
-The primary difference between these two options is that Light Attacks must be committed one-handed, while Heavy Attacks must be committed two-handed. Both of these attack types have their advantages and use cases.\\
-In addition, there are other attacks that require the weapon to be either one or two-handed.\\
-Weapons that are implicitly one-handed will not reach parity with two-handed weapons in terms of Heavy Attack damage output. However, two-handed weapons such as large swords have strict \refto{STR} requirements to be one-handed--and some two-handed melee weapons cannot be one-handed at all.
+One primary difference between these two options is that Light Attacks must be committed one-handed, while Heavy Attacks must be committed two-handed. Both of these attack types have their advantages and use cases. In addition, one-handing a weapon allows the character to use a shield, dual wield, or keep a free hand for using items.\\
+Weapons that are implicitly one-handed will not reach parity with two-handed weapons in terms of Heavy Attack damage output, as implicitly two-handed weapons are given an additional point of base damage. However, two-handed weapons such as large swords have strict \refto{STR} requirements to be one-handed--and some two-handed melee weapons cannot be one-handed at all.\\
+There are also additional special attacks that require a weapon to be either one or two-handed.
 
 \subsubsection{Unassigned Damage}
 Damage that is not assigned to an \refto{HP} slot, deposited in a \reftoit{sink}, or placed on a \reftoit{Shield Up!} token is considered unassigned.
@@ -713,7 +714,7 @@ If there are multiple encounter tables, resolve their rolls in alphabetical orde
 
 \textbf{2 -- Conditional Behavior:} 
 Some encounter rolls will provide conditional behavior for the active enemy. This allows enemies to perform alternative maneuvers when they can’t resolve an attack.\\
-This conditional behavior only hinges on whether the enemy is within range for the attack, not whether the attack will actually damage its target.\\
+Conditional behavior only hinges on whether the enemy can resolve the behavior’s very first attack, not whether that attack will actually damage its target.\\
 An encounter roll’s conditional behaviors are resolved in alphabetical order (\textbf{A}, \textbf{B}, \textbf{C}, etc). The last listed behavior is resolved even if the enemy cannot land its attack.\\
 
 \textbf{3 -- Move:} Enemies cannot use their Move value unless the encounter roll specifically allows for it. When an encounter roll dictates a Move, enemies will normally move up to their maximum Move value towards the character using the shortest logical route to the nearest free hex.\\
@@ -778,7 +779,7 @@ Some equipment has Durability \reftoit{sinks} which can be used to mitigate dama
 Flasks are equipped in pouches like any other item. Flasks produce effects when the character drinks from them. However, drinking necessitates proper situational awareness, as it is a Double action. Drinking from a flask reduces its charges by 1.
 
 \subsubsection{Free Hand}
-Leaving a free hand open on the character sheet alters the Use Item \refto{SP} cost to 2, and the Drink \refto{SP} cost to a flat 5. Remove one hand token to represent this.
+Leaving a free hand open alters the Use Item \refto{SP} cost to 2, and Drink to a flat 5. In addition, the character can still use their fist as a weapon. Remove one hand token to represent free handing.
 
 \subsubsection{Hand Slots}
 The character has four hand slots for equipping weapons, shields, and catalysts. Use two tokens (representing the character’s two hands) to track what’s being equipped in either hand. The passive effects (and weight) of equipment in hand slots is always in-play, regardless of whether or not that equipment is actually equipped.
@@ -1311,13 +1312,13 @@ If ENC<=EQP, \refto{SP} cost is 1D.\newline
 If ENC<=EQP*2, \refto{SP} cost is 2.\newline
 If ENC>EQP*2, \refto{SP} cost is 3\\
 Load & A & 2 & LdR\newline Missile available\newline No adjacent enemy & Select a missile from the quiver and make ready a loadable weapon. An already loaded weapon can have its ammunition swapped in this manner\\
-Move & A & 1D+ & - & Move 1!.\newline
+Move & A & 1D+ & - & Move 1!\newline
 Do not remove \reftoit{Shield Up!}\newline
 May move an additional tile for each overspent \refto{SP} up to a maximum of 6.\newline
 If ENC>EQP, max Move is 5.\newline
 If ENC>EQP*2, max Move is 4.\newline
 If \reftoit{Shield Up!} is present on the status sheet, move a single hex for each 2 Move value\setcounter{rownum}{0}\\
-\rowcolor{white} \emph{Roll!} & E & 2 & Knocked down & Move 1!.\newline
+\rowcolor{white} \emph{Roll!} & E & 2 & Knocked down & Move 1!\newline
 Remove Blazing\\
 \hline
 \end{tabularx}
@@ -1360,10 +1361,10 @@ Take no damage or conditions from the active enemy’s current attack unless it 
 Drink & A & 2D & Flask with charges & Drink from an equipped flask, reducing its charges by 1 and resolving its effects\\
 Gasp\newline \& Pant & A & - & - & Remove all remaining \refto{SP} Dice from the \reftoit{stamina pool}.\newline This is not a Free action\\
 Retreat & A & 1D & Standing on a retreat tile, and able to Move & Resolve the encounter’s Retreat result\\
-Sprint & A & 2D & ENC<EQP*2 & Move 6\\
+Sprint & A & 2D & ENC<EQP*2 & Move 5-6 in a straight or snaking line\\
 \emph{Struggle!}\hypertarget{Struggle!}{} & A & 2D & - & Some conditions, such as Frozen, can only be removed by struggling. Remove 1 such condition token per use of \reftoit{Struggle!}\\
 Summon Guts & X & X & - & Activate a Guts attunement. See attunements details for \refto{SP} and \refto{FP} cost. Only attunements tagged as reactions can be used as such\\
-Vault & A & X & ENC<EQP*2 & Move 2, ignoring the effects of a hazard or tile of half-cover.\newline
+Vault & A & X & ENC<EQP*2 & Move 2!, ignoring the effects of a hazard or tile of half-cover.\newline
 If ENC<EQP/2 \emph{rd}, \refto{SP} cost is 3.\newline
 If ENC<EQP, \refto{SP} cost is 4.\newline
 If ENC<EQP*2, \refto{SP} cost is 5\\
@@ -1405,7 +1406,7 @@ Attack, Double & A & Wep1+Wep2 & Dual wielding & Perform two attacks, one with e
 Attack, Guarded & A & Wep+1 & 1H M (P) & Attack an enemy within weapon range.\newline Do not remove \reftoit{Shield Up!}\\
 Attack, Light & A & Wep & 1H M & Attack an enemy within weapon range.\newline
 May Move 1 before attacking, but only in the direction of the attack or one hex left or right of it\\
-Attack, Heavy & A & Wep+ & 2H M & Attack an enemy within weapon range.\newline Apply an extra point of damage for every overspent \refto{SP} up to double the weapon’s damage (including any scaling bonus damage)\\
+Attack, Heavy & A & Wep+ & 2H M & Attack an enemy within weapon range.\newline Apply an extra point of damage for every overspent \refto{SP} (up to double the original \refto{SP} cost)\\
 Bash & A & Wep+1 & M (C) & Attack an enemy within weapon range.\newline If this attack assigns all of its damage to \refto{HP} slots, it also inflicts Stun\\
 Batter & A & 2 & R or LdR & Inflict Knockback 1 on an adjacent enemy, using the equipped ranged weapon.\newline This is a Simple action\\
 Charge & A & 2+Wep+ & 2H M & Move 2! in a straight or snaking line.\newline
@@ -1462,7 +1463,7 @@ Fend & R & Wep*2 & - & Attack the active enemy once it crosses within weapon ran
 Flurry & A & 2D & 1H & Attack a single enemy within weapon range twice\\
 Harry & A & Wep+1 & - & Commit a Light Attack, and then Move 1 in any direction \\
 Light/Douse & A & 2 & Doused weapon & Lights or douses a weapon, such as a torch\\
-Lunge & A & Wep+1 & M (P) & Move 2! in a straight or snaking line.\newline After moving, attack the tile in the direction of the last Move or one hex left or right of it for \reftoit{Unparryable} Pierce damage\\
+Lunge & A & Wep+1 & M (P) & Move 1-2 in a straight or snaking line.\newline After moving, attack the tile in the direction of the last Move or one hex left or right of it for \reftoit{Unparryable} Pierce damage\\
 Mordhau & A & X & 2H M & Commit any attack from the basic Crush moveset, dealing Crush with -1 to damage\\
 Plant Pavise & A & 3 & - & Exhaust the Pavise Shield equipment and changes a non-special tile to a half-cover obstacle\\
 Pull & A & Wep+1 & - & Attack any enemy within weapon range, and then move that enemy a tile closer\\
@@ -1482,7 +1483,7 @@ Pulverize & A & 5 & 2H M & Inflict 1 Breaking damage on an enemy within weapon r
 Puncture & A & Wep*2 & M (P) & Attack an enemy within weapon range with \reftoit{Unsinkable} damage\\
 Riposte & R & X & - & Functions the same as the Parry reaction, but also inflicts an immediate attack from \emph{any} currently held weapon on the active enemy.\newline The enemy must be within weapon range for the Riposte attack\\
 Set Aflame & A & Wep+2 & Lit weapon & Inflict Blazing on an enemy within weapon range\\
-Shieldbreak & A & Wep & 2H M & Inflict all of the weapon’s damage to an enemy’s \emph{Shield Up!} token within weapon range.\newline Assign all damage to the \emph{Shield Up!} token regardless of the shield’s Defense value.\newline This damage may only be assigned to \reftoit{Shield Up!} and will not ‘bleed over’ after a \reftoit{Guard Break}\\
+Shieldbreak & A & Wep+ & 2H M & Inflict all of this attack’s damage to an enemy’s \emph{Shield Up!} token within weapon range.\newline Assign all damage to the \emph{Shield Up!} token regardless of the shield’s Defense value.\newline This damage may only be assigned to \reftoit{Shield Up!} and will not ‘bleed over’ after a \reftoit{Guard Break}\\
 Tinker & A & 2D & - & Clear 1 Durability \reftoit{sink} from any equipment. This may remove Broken\\
 Wild Swing & A & Wep+4 & 2H M (S,C) & Move 1-2 in a straight or snaking line.\newline After moving, attack three adjacent hexes in a half-moon pattern, centered in the direction of the last Move or one hex left or right of it. Inflict Knockback 1 and Knockdown on all enemies struck by this attack\\
 \hline
