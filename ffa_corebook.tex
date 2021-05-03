@@ -115,7 +115,7 @@ As the player makes their way through a scenario, they will occasionally be aske
 Fires Far Away was not released under any license or copyright. \emph{Fires Far Away: A Solitaire Journey} is released under the CC BY-NC-SA 3.0 US license. In other words, this is an ‘open source’ item. Additions and modifications are welcome as long as they’re non-commercial.
 
 \section*{Credits}
-Version: 0.99\\
+Version: 1.0\\
 \textbf{Original Homebrew:} Unknown\\
 \textbf{Cover Art:} sstarkm\\
 \textbf{Solitaire Conversion:} John Conway\\
@@ -442,7 +442,7 @@ Bleeding can only be removed via items and some attunements.\\
 \textbf{Flinch:} \emph{Immediate.} The character loses 1 \refto{SP} die with the highest score from their \reftoit{stamina pool}.\\
 This condition can be \reftoit{sunk} using \refto{PS}.\\
 
-\textbf{Frozen:} \emph{Static.} The afflicted entity cannot commit to any action except \reftoit{Struggle!} while Frozen, but gains 1 \refto{P.DEF} per Frozen token.\\
+\textbf{Frozen:} \emph{Static.} Remove Blazing. The afflicted entity cannot commit to any action except \reftoit{Struggle!} while Frozen, but gains 1 \refto{P.DEF} per Frozen token.\\
 Each use of the \reftoit{Struggle!} action removes 1 Frozen token. During a \emph{counterbeat}, any enemy incapable of resolving its encounter roll due to being Frozen will instead perform the \reftoit{Struggle!} action.\\
 Frozen entities do not suffer Stun or Flinch from a \reftoit{Guard Break}.\\
 Suffering Burn damage will also remove 1 Frozen token per Burn damage.\\
@@ -454,11 +454,12 @@ Gaining \refto{HMN} while Hollow only removes the condition, the character will 
 
 \textbf{Knockback:} \emph{Immediate.} The afflicted entity is moved directly backwards from the source of the Knockback by the specified number of hexes.\\
 If the afflicted entity is moved onto a hazard tile in this manner, end the Knockback and resolve the effects of the hazard tile.\\
-If Knockback attempts to move the entity into an obstacle or boundary, the entity instead suffers 1 \emph{Unblockable} Crush damage per Knockback remaining. If the entity receives more than 1 Crush damage in this way, then they are also inflicted with Knockdown.\\
+If Knockback attempts to move the entity into an impassable tile, they instead suffer 1 \emph{Unblockable} Crush damage per Knockback remaining. If the entity receives more than 1 Crush damage in this way, then they are also inflicted with Knockdown.\\
+If the Knockback moves an entity into another entity, then that secondary entity receives the aforementioned Crush damage instead (and Knockdown).\\
 This condition can be \reftoit{sunk} using \refto{PS} (at 1 tile per \refto{PS} value).
 
 \begin{tcolorbox}
-\textbf{Example:} If an entity suffers Knockback 3 but was already adjacent to an impassable tile, then 3 Crush damage is dealt along with Knockdown (it doesn’t matter if the Crush damage was assigned to \refto{HP} slots).\\
+\textbf{Example:} If an entity suffers Knockback 3 but was adjacent to an impassable tile, then 3 Crush damage is dealt along with Knockdown.\\
 If the entity suffered Knockback 3, and was moved 2 tiles before striking an impassable tile, then it would suffer 1 Crush damage but not Knockdown.
 \end{tcolorbox}
 
@@ -466,9 +467,7 @@ If the entity suffered Knockback 3, and was moved 2 tiles before striking an imp
 Any adjacent half-cover obstacles are treated as full-cover while knocked down.\\
 During a \emph{counterbeat}, any enemy incapable of resolving its encounter roll due to being knocked down will instead perform the \emph{Get Up!} action.\\
 Knocked down entities still occupy their tile(s), but may be crossed over by other entities making a Move action.\\
-This condition is non-cumulative, and can be \reftoit{sunk} using \refto{PS}.\\
-
-\pagebreak
+This condition is non-cumulative, and can be \reftoit{sunk} using \refto{PS}.
 
 \textbf{Maddened:} \emph{Time-Limited - Turn.} A Maddened entity will target the nearest entity during its Turn, friend or foe. If multiple entities are equidistant, the character always takes priority, but otherwise it’s the player’s choice.\\
 
@@ -520,7 +519,6 @@ Breaking damage functions the same as Acid, except it can never be assigned to \
 For enemies, Acid/Breaking will permanently reduce their \refto{P.DEF}, or their shield’s Durability if the damage is assigned to \reftoit{Shield Up!}\\
 
 \textbf{Bleed:} Bleed damage is always \reftoit{Unblockable}, and can only use \refto{RES} as a \reftoit{sink}.\\
-Bleed tokens are never immediately assigned to \refto{HP} slots. While an entity sheet contains unassigned Bleed tokens, assign 3 such Bleed tokens to \refto{HP} slots at the beginning of every Turn.\\
 Bleed tokens assigned to \refto{HP} slots are cleared after the end of an encounter.
 
 \begin{tcolorbox}
@@ -535,6 +533,8 @@ Bleed tokens assigned to \refto{HP} slots are cleared after the end of an encoun
 
 \textbf{Physical}: These three types of damage—Slash, Crush, and Pierce—are all considered Physical damage. Some enemies may have increased defenses against a specific type of Physical damage. A weapon’s damage type(s) determines what sort of attacks can be committed, i.e: a blunt weapon such as a mace cannot use slashing or piercing attacks. All three Physical damage types may use \refto{P.DEF} as a \reftoit{sink}.
 
+\columnbreak
+
 \textbf{Poison:} Poison damage can only use \refto{RES} as a \reftoit{sink}. Poison tokens are never immediately assigned to \refto{HP} slots. While an entity sheet contains unassigned Poison tokens, assign 1 such Poison token to an \refto{HP} slot at the beginning of every Turn.\\
 
 \textbf{Smite:} Smite damage can only use \refto{L.DEF} as a \reftoit{sink}.\\
@@ -543,6 +543,10 @@ Bleed tokens assigned to \refto{HP} slots are cleared after the end of an encoun
 
 \subsubsection{Darkness}
 In dark encounters, all tiles past range 2 are concealment. With a lit light source, this range is expanded to 5 tiles, but the light-holding entity is not concealed.
+
+\subsubsection{\emph{Dodge!}}
+\hypertarget{Dodge!}{}
+\emph{Dodge!} is a reaction the character may commit to evade most kinds of attacks. Its \refto{SP} cost and implicit Move will change depending on the character’s \refto{ENC} and carried weight. Characters that have far exceeded their weight capacity will be incapable of committing the reaction. See the Dynamic Actions Roster entry for details.
 
 \subsubsection{\emph{Guard Break}}
 \hypertarget{Guard Break}{}
@@ -565,7 +569,7 @@ Ranged attacks with \reftoit{Lock-On} can maneuver towards the target via whatev
 
 \subsubsection{Movement}
 Move values are given as a flat number. The entity may move up to that maximum number of tiles.\\
-An ‘!’ designates some implicit movement that must be taken.\\
+An ‘!’ designates some implicit movement that must be taken, such as the Move for \emph{Dodge!}\\
 A hyphenated value such as 1-2 also designates some minimum necessary movement for an action.
 
 \subsubsection{Overspent Actions}
@@ -577,9 +581,7 @@ Attack ranges are given as flat numbers representing the attack’s maximum dist
 Ranged melee refers to melee attacks that occur at range, such as spear thrusts. Although these attacks must obey ranged targeting rules, they are still melee and may be mitigated through Parry.\\
 Ranged attacks without \reftoit{Lock-On} cannot target tiles in or past concealment, but may still strike concealed tiles via any area of effect.\\
 Ranged melee attacks, and ranged attacks without \reftoit{Lock-On} cannot curve around full-cover obstacles or entities. When plotting the route for these attacks, there must be a direct line of sight from attacker to target regardless of number of tiles travelled.\\
-To check difficult calls, simply place a pencil or other straight-edged object from the center of the attacker to the center of the target tile. If the straight-edge does not cross through a tile containing an entity or full-cover, then the attack is valid. The attack is only blocked if it were to pass through two separate edges of the occupied tile; simply skirting an edge will not invalidate the attack.
-
-\columnbreak
+To check difficult calls, simply place a pencil or other straight-edged object from the center of the attacker to the center of the target tile. If the straight-edge does not cross through a tile containing an entity or full-cover, then the attack is valid. The attack is only blocked if it were to pass through two separate edges of the occupied tile; simply skirting an edge will not invalidate the attack.\\
 
 \textbf{Ranged Attack Example:}
 \begin{center}
@@ -591,7 +593,7 @@ To check difficult calls, simply place a pencil or other straight-edged object f
 \subsubsection{Rounds \& Turns}
 A Round refers to a break in the encounter that occurs when the character re-rolls their \reftoit{stamina pool}. This event is also used for other mechanics, such as \emph{doom events} and some conditions.\\
 A Turn refers to a \emph{beat} or \emph{counterbeat}. When this corebook uses Turn in a possessive sense (i.e: the character’s Turn), it is referring to either the character’s \emph{beat} or the enemy’s \emph{counterbeat.}\\
-When dealing with trickling damage tokens, such as Bleed or Toxic, they are only assigned at the beginning of the entity’s Turn that’s receiving the damage.
+When dealing with trickling damage tokens, such as Poison or Toxic, they are only assigned at the beginning of the damaged entity’s Turn.
 
 \subsubsection{\emph{Shield Up!}}
 \hypertarget{Shield Up!}{}
@@ -632,6 +634,7 @@ The character commits actions and reactions during an encounter by spending \ref
 
 \subsubsection{Straight or Snaking}
 Straight or snaking refers to possible routes for line-type area of effects, or the directions an entity might move while making a charging-type attack.\\
+
 Here is a visual example of straight and snaking patterns for a range 3 attack:
 \begin{center}
 \framebox{
@@ -644,7 +647,7 @@ For charging-type attacks, the attack must be angled in the direction of the \em
 \hypertarget{Sudden}{}
 A \reftoit{Sudden} \emph{counterbeat} does not give the character the opportunity to commit a reaction.
 
-\subsubsection{Two vs. One-Handing Weapons}
+\subsubsection{Two vs. One-Handing}
 Most weapons can be held either in a single hand, or two-handed. The exception to this is ranged weapons like bows, and some special or large weapons.\\
 One primary difference between these two options is that Light Attacks must be committed one-handed, while Heavy Attacks must be committed two-handed. Both of these attack types have their advantages and use cases. In addition, one-handing a weapon allows the character to use a shield, dual wield, or keep a free hand for using items.\\
 Weapons that are implicitly one-handed will not reach parity with two-handed weapons in terms of Heavy Attack damage output, as implicitly two-handed weapons are given an additional point of base damage. However, two-handed weapons such as large swords have strict \refto{STR} requirements to be one-handed--and some two-handed melee weapons cannot be one-handed at all.\\
@@ -687,11 +690,11 @@ Enemies may have special types applied to them, such as \emph{Undead} or \emph{I
 
 \textbf{Floating/Flying:} This entity ignores hazard tiles and half-cover obstacles unless afflicted with Knockdown.\\
 
-\textbf{Formation Fighter:} This entity forms some sort of formation with other entities, and the formation retains its own specific ruleset dictating their movement and attacks. Entities in a formation can normally attack past each other, and move as a single entity with one combined Turn.\\
+\textbf{Formation Fighter:} This entity is a formation of individual entities, and retains its own specific ruleset dictating their movement and attacks. Entities in a formation act during a single Turn, are immune to Knockback and Knockdown, and can attack freely past each other.\\
 
-\textbf{Great Foe:} In other words, a boss. This entity ignores all conditions inflicted by normal sources, except Blazing and Bleeding, and is immune to Backstab (but not Coup de Grâce).\\
+\textbf{Great Foe:} In other words, a boss. This entity ignores all conditions inflicted by normal sources, except Blazing and Bleeding, and is immune to Backstab.\\
 
-\textbf{Hollowed:} This entity is insane and ignores the Charmed, Maddened, and Fear conditions.\\
+\textbf{Hollowed:} This entity is insane and ignores the Stunned, Charmed, Maddened, and Fear conditions.\\
 
 \textbf{Intelligent:} This entity is either human or possesses a human-like intelligence. If the shortest route for an \emph{Intelligent} enemy’s movement would cause it to bunch up with other entities or otherwise not reach its intended target, it will take another, longer route to its target. \emph{Intelligent} enemies will also \emph{Drop!} and \emph{Roll!} away from the character if they are Blazing at the start of their \emph{counterbeat.}\\
 
@@ -701,7 +704,7 @@ If using coinage for entity tokens, the head and tail tile can easily be disting
 
 \textbf{Mounted:} This enemy rides something, and can be subjected to the Dismounted condition. The actual effect of being Dismounted is specific to each enemy.\\
 
-\textbf{Undead:} This entity is \emph{Undead}, and is subject to certain attacks or effects that only affect the \emph{Undead.} Unless stated otherwise in the enemy’s description, an \emph{Undead} enemy is not affected by Bleed or Dark damage, nor subject to the Charmed, Bleeding, Maddened, or Fear conditions.\\
+\textbf{Undead:} This entity is \emph{Undead}, and is subject to certain attacks or effects that only affect the \emph{Undead.} Unless stated otherwise in the enemy’s description, an \emph{Undead} enemy is not affected by Bleed or Dark damage, nor subject to the Stunned, Charmed, Bleeding, Maddened, or Fear conditions.\\
 
 This is only a small selection of enemy types.
 
@@ -732,8 +735,10 @@ Some attacks allow the active enemy to Move. This implicit Move is always availa
 
 The result of this system is that enemy behavior is semi-predictable. The player can look at an encounter table and determine what exact behaviors their enemy might resolve (and tailor their Turn accordingly). However, the actual behavior of the enemy is still left to chance.
 
+\vfill
+
 \begin{tcolorbox}
-\textbf{Note:} When in doubt, remember that this system is attempting to replicate intelligent human behavior for (most) enemies. If some behavior feels nonsensical, it probably is.
+\textbf{Note:} Lastly, this system was designed cognizant of the fact that the player will be controlling their own opponents, and that the player will encounter situations where they can make decisions for their opponents that are beneficial to their character. This is perfectly fine, \emph{so long as those moves are legal and sensible}. Controlling enemies is as much a part of the game’s strategy as is controlling the character--in fact, some encounters might be based around it!
 \end{tcolorbox}
 
 \vfill
@@ -918,7 +923,7 @@ These values are not directly increased via Soul advancement, but are influenced
 
 \columnbreak
 
-\textbf{Encumbrance (\makeref{ENC})} – The total weight of all worn equipment. Most importantly, it determines the \reftoit{Dodge!} reaction, as well as some other actions like Vault, Juke, and Sprint. It also determines a character’s maximum Move value.
+\textbf{Encumbrance (\makeref{ENC})} – The total weight of all worn equipment. Most importantly, it determines the \reftoit{Dodge!} reaction, as well as some other actions like Vault and Sprint. It also determines a character’s maximum Move value.
 
 \rowcolors{2}{}{Gray}
 \begin{center}
@@ -926,11 +931,11 @@ These values are not directly increased via Soul advancement, but are influenced
 \hline
 \textbf{ENC vs EQP} & \textbf{\reftoit{Dodge!}}\\
 \hline
-ENC < EQP/2 \emph{rd} & 2 SP.  Move 1.\\
+ENC < EQP/2 \emph{rd} & 3 \refto{SP}.  Move 1!\\
 \hline
-EQP/2 \emph{rd} <= ENC <= EQP & 3 SP. Move 1.\\
+EQP/2 \emph{rd} <= ENC <= EQP & 4 \refto{SP}. Move 1!\\
 \hline
-EQP < ENC < EQP*2 & 4 SP. No move.\\
+EQP < ENC < EQP*2 & 5 \refto{SP}. No move.\\
 \hline
 EQP*2 <= ENC & No \reftoit{Dodge!}\\ 
 \hline
@@ -1062,7 +1067,7 @@ An encounter begins with its first Round. Whenever the character would begin the
 During the \emph{beat}, the player spends \refto{SP} dice to commit actions such as moving or attacking.\\
 \textbf{Instructions:}
 \begin{enumerate}
-\item First, assign any trickling damage (such as Poison or Bleed) on the status sheet to \refto{HP} slots
+\item First, assign any trickling damage (such as Poison or Toxic) on the status sheet to \refto{HP} slots
 \item The character must commit at least 1 action per \emph{beat}, and may commit a maximum of 2 Simple actions; or 1 Simple action and 1 Dynamic action; or 1 Double action
 \item In addition, the character may commit 1 Free action that does not count towards the action minimum or action limit (and it may not be taken last)
 \item After all actions are resolved, remove 1 token of each \emph{Time-Limited - Turn} condition from the status sheet
@@ -1073,7 +1078,7 @@ During the \emph{counterbeat}, the encounter orchestrates itself according to th
 \textbf{Instructions:}
 \begin{enumerate}
 \item Every \emph{beat} must be followed by a \emph{counterbeat}
-\item First, assign any trickling damage (such as Poison or Bleed) to enemies’ \refto{HP}
+\item First, assign any trickling damage (such as Poison or Toxic) to enemies’ \refto{HP}
 \item Roll on the encounter table. If there are multiple encounter tables, resolve all of the current encounter roll’s behavior before moving onto subsequent tables
 \item If a rolled entry is exhausted, resolve the next unexhausted entry to its right instead (looping if necessary)
 \item The enemy resolving an encounter roll at any given time is known as the ‘active enemy’. If multiple enemies are controlled by the same table, each active enemy resolves its behavior before moving onto the next enemy
@@ -1141,7 +1146,7 @@ Before beginning the encounter, the player decides to look over their opponent. 
 \subsubsection*{Hollowed Adventurer}
 \refto{HP}: 13 \hspace*{2cm} \textbf{Move:} 4 \\
 \refto{P.DEF}: 1 \\\\
-\emph{Hollow:} This entity ignores the Charmed, Maddened, and Fear conditions.\\\\
+\emph{Hollow:} This entity ignores the Stunned, Charmed, Maddened, and Fear conditions.\\\\
 \textbf{Attacks:}
 \begin{itemize}
 \item \emph{Shortsword} - Deal 2 Slash damage to an adjacent entity
@@ -1161,7 +1166,7 @@ Rather than including an entire character sheet, here are the relevant details f
 \hrule
 \subsubsection*{Genericus}
 \refto{HP}: 6 \hspace*{2cm} \refto{P.DEF}: 2\\
-\refto{SP}: 4 \hspace*{2.1cm} \textbf{\reftoit{Dodge!}:} 4 SP, No Move\\\\
+\refto{SP}: 4 \hspace*{2.1cm} \textbf{\reftoit{Dodge!}:} 5 SP, No Move\\\\
 \textbf{Equipment:}
 \begin{itemize}
 \item \emph{Arming Sword} - Costs 2 \refto{SP}. Deals 2 damage, inflicting either Slash or Pierce. Has the special attack: Lunge
@@ -1172,7 +1177,7 @@ Rather than including an entire character sheet, here are the relevant details f
 \hrule
 \ \\ \ \\
 Genericus is a bog-standard, low-level fighter. He carries two weapons: the arming sword, and his spear. The sword is versatile, and allows him to Lunge an extra tile for attacks. The spear has no special attacks, and cannot perform the Slash moveset, but it has a range of 2 tiles and pairs well with a shield for Guarded Attacks.\\
-Genericus also has a bit of a weight problem, making his \reftoit{Dodge!} action cost 4 \refto{SP} and afford no movement. But what he lacks in agility he makes up for with armor. His 2 \refto{P.DEF} will allow him to mitigate 2 Physical damage per Round, and ontop of that he has a kite shield for even further defenses.\\
+Genericus also has a bit of a weight problem, making his \reftoit{Dodge!} action cost 5 \refto{SP} and afford no movement. But what he lacks in agility he makes up for with armor. His 2 \refto{P.DEF} will allow him to mitigate 2 Physical damage per Round, and ontop of that he has a kite shield for even further defenses.\\
 Looking purely at stats, Genericus appears to be weaker than his opponent. However, he has one major advantage: his player. It’s Genericus’ fight to lose.
 \end{multicols*}
 \pagebreak
@@ -1256,7 +1261,7 @@ The player decides on two-handing the arming sword again for another Heavy Attac
 \emph{Genericus considers sending the hollow over the edge.}
 \end{center}
 \subsubsection*{\emph{Counterbeat}}
-The encounter table roll is another 1. With his \refto{P.DEF} gone, \emph{Flurry’s} 6 combined Slash damage would defeat Genericus. And since Genericus is two-handing his sword, committing \reftoit{Shield Up!} as a reaction isn’t an option. The player’s least odious solution is to commit \reftoit{Dodge!} for that first swing, and eat the remaining 4 damage. Since \reftoit{Dodge!} costs 4 \refto{SP}, this will require both the remaining 2-score and 3-score \refto{SP} dice, and the Round will end.\\
+The encounter table roll is another 1. With his \refto{P.DEF} gone, \emph{Flurry’s} 6 combined Slash damage would defeat Genericus. And since Genericus is two-handing his sword, committing \reftoit{Shield Up!} as a reaction isn’t an option. The player’s least odious solution is to commit \reftoit{Dodge!} for that first swing, and eat the remaining 4 damage. Since \reftoit{Dodge!} costs 5 \refto{SP}, this will require both the remaining 2-score and 3-score \refto{SP} dice, and the Round will end.\\
 The player goes ahead and commits their remaining dice to saving Genericus. His \refto{HP} drops from 5 to 1.
 
 \subsubsection*{Round 4--}
@@ -1314,10 +1319,10 @@ If ENC>EQP*2, \refto{SP} cost is 3\\
 Load & A & 2 & LdR\newline Missile available\newline No adjacent enemy & Select a missile from the quiver and make ready a loadable weapon. An already loaded weapon can have its ammunition swapped in this manner\\
 Move & A & 1D+ & - & Move 1!\newline
 Do not remove \reftoit{Shield Up!}\newline
-May move an additional tile for each overspent \refto{SP} up to a maximum of 6.\newline
-If ENC>EQP, max Move is 5.\newline
-If ENC>EQP*2, max Move is 4.\newline
-If \reftoit{Shield Up!} is present on the status sheet, move a single hex for each 2 Move value\setcounter{rownum}{0}\\
+May move an additional tile for each overspent \refto{SP}.\newline
+If ENC<EQP/2 \emph{rd}, max Move is 6.\newline
+If ENC<=EQP, max Move is 5.\newline
+If ENC>EQP or the character possesses \reftoit{Shield Up!} max Move is 4.\setcounter{rownum}{0}\\
 \rowcolor{white} \emph{Roll!} & E & 2 & Knocked down & Move 1!\newline
 Remove Blazing\\
 \hline
@@ -1334,7 +1339,7 @@ Remove Blazing\\
 \reftoit{Shield Up!} & E & X & Shield Equipped & Add the \reftoit{Shield Up!} token to the status sheet.\newline
 \refto{SP} cost is Def, where Def is the shield’s Defense value.\newline
 This token is removed when committing any other action, unless that action specifically allows the character to keep their \reftoit{Shield Up!} token.\newline
-\textbf{Remember} that while the character can Move without losing \emph{Shield Up!} it will reduce their movement (see Move for details)\\
+\textbf{Remember} that while the character can Move without losing \emph{Shield Up!} it will reduce their max Move to 4\\
 Take Aim & A & 3 & - & The next non-attunement ranged attack or thrown item made this \emph{beat} gains 2 hexes in range.\newline
 If the attack is made within the original weapon range, then the item or missile gains \reftoit{Unblockable}.\newline
 If the attack is made within the original weapon range, the target does not possess \reftoit{Shield Up!}, then the attack gains 1 damage (as long as any damage existed prior)\\
@@ -1354,14 +1359,15 @@ Dynamic actions that can only be committed once per \emph{beat}, in addition to 
 \textbf{Action} & \textbf{Type} & \textbf{SP} & \textbf{Requires} & \textbf{Effect}\setcounter{rownum}{0}\\
 \hline
 Cast & X & X & Catalyst & Cast an attunement using the equipped catalyst. \refto{PWR} is the character’s attunement type Bonus and catalyst’s Power combined.\newline See attunement details for \refto{SP} and \refto{FP} cost.\newline Only attunements tagged as reactions may be cast as such\\
-\emph{Dive!} & E & 2 & - & Move 1-3.\newline
+\emph{Dive!} & E & 2 & - & Move 1-3 in a straight or snaking line.\newline
 Place an \reftoit{Inevitable} Knockdown token on the status sheet\\
-\emph{Dodge!}\hypertarget{Dodge!}{} & R & X & ENC<=EQP*2 & Refer to the character’s \refto{ENC} score for \refto{SP} cost and optional movement.\newline
-Take no damage or conditions from the active enemy’s current attack unless it is \reftoit{Undodgeable}, \reftoit{Inevitable}, or \reftoit{Lock-On}\\
+\emph{Dodge!} & R & X & ENC<=EQP*2 & Refer to Page 23 for \refto{SP} cost and any implicit Move.\newline
+Take no damage or conditions from the active enemy’s current attack unless it is \reftoit{Undodgeable}, \reftoit{Inevitable}, or \reftoit{Lock-On}\newline
+The implicit Move of \emph{Dodge!} may allow the character to get out of range of attacks that it cannot mitigate. Any implicit Move for \emph{Dodge!} is not optional (marked ‘!’).\\
 Drink & A & 2D & Flask with charges & Drink from an equipped flask, reducing its charges by 1 and resolving its effects\\
-Gasp\newline \& Pant & A & - & - & Remove all remaining \refto{SP} Dice from the \reftoit{stamina pool}.\newline This is not a Free action\\
+Gasp\newline \& Pant & A & - & - & Remove all remaining \refto{SP} dice from the \reftoit{stamina pool}.\newline This is not a Free action\\
 Retreat & A & 1D & Standing on a retreat tile, and able to Move & Resolve the encounter’s Retreat result\\
-Sprint & A & 2D & ENC<EQP*2 & Move 5-6 in a straight or snaking line\\
+Sprint & A & 2D & ENC<EQP*2 & Move 5-6\\
 \emph{Struggle!}\hypertarget{Struggle!}{} & A & 2D & - & Some conditions, such as Frozen, can only be removed by struggling. Remove 1 such condition token per use of \reftoit{Struggle!}\\
 Summon Guts & X & X & - & Activate a Guts attunement. See attunements details for \refto{SP} and \refto{FP} cost. Only attunements tagged as reactions can be used as such\\
 Vault & A & X & ENC<EQP*2 & Move 2!, ignoring the effects of a hazard or tile of half-cover.\newline
@@ -1377,7 +1383,6 @@ If ENC<EQP*2, \refto{SP} cost is 5\\
 \subsubsection{Free Actions Roster}
 One Free action can be committed during a \emph{beat} for no \refto{SP} cost. Only one Free action may be committed per \emph{beat}, however, and it may not be taken as the final action.\\
 A Free action does not count toward a \emph{beat’s} action minimum or action limit.\\
-\textbf{Remember} that Free actions cannot be committed during a reaction, only during the \emph{beat}.\\
 \begin{center}
 \begin{tabularx}{\textwidth}{p{0.1\textwidth}p{0.08\textwidth}p{0.1\textwidth}p{0.2\textwidth}p{0.4\textwidth}}
 \hline
@@ -1393,6 +1398,10 @@ The character still retains the passive bonuses of all equipment in hand slots, 
 \end{tabularx}
 \end{center}
 
+\begin{tcolorbox}
+\textbf{Note:} Remember that Free actions cannot be committed during a reaction, only during the \emph{beat}.
+\end{tcolorbox}
+
 \pagebreak
 
 \subsubsection{Default Attacks Roster}
@@ -1404,16 +1413,15 @@ All attacks are considered Dynamic actions unless stated otherwise. All weapons 
 \hline
 Attack, Double & A & Wep1+Wep2 & Dual wielding & Perform two attacks, one with each equipped weapon, as a single Dynamic action\\
 Attack, Guarded & A & Wep+1 & 1H M (P) & Attack an enemy within weapon range.\newline Do not remove \reftoit{Shield Up!}\\
-Attack, Light & A & Wep & 1H M & Attack an enemy within weapon range.\newline
-May Move 1 before attacking, but only in the direction of the attack or one hex left or right of it\\
+Attack, Light & A & Wep & 1H M & Move 1. Attack an enemy within weapon range\\
 Attack, Heavy & A & Wep+ & 2H M & Attack an enemy within weapon range.\newline Apply an extra point of damage for every overspent \refto{SP} (up to double the original \refto{SP} cost)\\
-Bash & A & Wep+1 & M (C) & Attack an enemy within weapon range.\newline If this attack assigns all of its damage to \refto{HP} slots, it also inflicts Stun\\
+Bash & A & Wep+2 & M (C)\newline Base damage greater than 1 & Attack an enemy within weapon range.\newline If this attack assigns all of its damage to \refto{HP} slots, it also inflicts Stun\\
 Batter & A & 2 & R or LdR & Inflict Knockback 1 on an adjacent enemy, using the equipped ranged weapon.\newline This is a Simple action\\
 Charge & A & 2+Wep+ & 2H M & Move 2! in a straight or snaking line.\newline
 After moving, commit a Heavy Attack in the direction of the last Move or one hex left or right of it.\newline
 The score from the ‘2’ is not included in the Heavy Attack’s overspend.\newline
 This is a Double action\\
-Cleave & A & Wep+1 & 2H M (S)\newline Damage greater than 2 & Attack two enemies that are adjacent to each other and both within weapon range\\
+Cleave & A & Wep+1 & 2H M (S)\newline Base damage greater than 2 & Attack two enemies that are adjacent to each other and both within weapon range\\
 Coup\newline De Grâce & A & 2D & M & Deal double \reftoit{Unsinkable} damage to an adjacent enemy that is knocked down and does not have \reftoit{Shield Up!}\\
 Draw\newline and Fire & A & Wep & 2H R\newline Missile available\newline No adjacent enemy & Select a missile from the quiver and deal the weapon and missile’s combined damage to an enemy within their combined range\\
 \hline
@@ -1429,8 +1437,8 @@ Draw\newline and Fire & A & Wep & 2H R\newline Missile available\newline No adja
 \hline
 Kick & A & 3 & - & Inflict Knockback 1 on an adjacent enemy that is not knocked down, and remove any \reftoit{Shield Up!} token from that enemy.\newline
 If target enemy is knocked down, inflict Stun on that enemy instead.\newline This is a Simple action\\
-Overhead & A & Wep+2 & M (C) & Attack all hexes in a forward or snaking line within weapon range, ignoring any minimum range.\newline
-If this attack assigns 3 or more damage to \refto{HP} slots, it also inflicts Knockdown\\
+Overhead & A & Wep+2 & M (C)\newline Base damage greater than 2 & Attack all hexes in a forward or snaking line within weapon range, ignoring any minimum range.\newline
+If this attack assigns all of its damage to \refto{HP} slots, it also inflicts Knockdown\\
 Parry & R & X & M & Spend a \refto{SP} die matching one die rolled on the encounter table. Cancel the active enemy’s melee attack and end its Turn.\newline The active enemy must be controlled by the encounter table with the matched die.\newline Cannot be used on \reftoit{Unparryable} attacks\\
 Shield Bash & A & 3 & Shield & Inflict Knockback 1 and the equipped shield’s damage to an adjacent enemy.\newline Do not remove \reftoit{Shield Up!}\\
 Shield Ram & A & 5 & Shield & Move 1-2 in a straight or snaking line.\newline After moving, inflict Knockback 2 and the equipped shield’s damage to a hex in the direction of the last Move or one hex left or right of it.\newline Do not remove \reftoit{Shield Up!}\\
@@ -1452,8 +1460,8 @@ All attacks are considered Dynamic actions. Actions in this category are only av
 \hline
 \rowcolor{white} \textbf{Action} & \textbf{Type} & \textbf{SP} & \textbf{Requires} & \textbf{Effect}\setcounter{rownum}{0}\\
 \hline
-Backstab & A & 3 + Wep*2 & M (P)\newline ENC<EQP*2 & Deal double \reftoit{Unblockable} and \reftoit{Unparryable} damage, and inflicts Knockdown, on an adjacent enemy.\newline
-Move the character to the hex on the opposite side of that enemy. If the character cannot reach that tile, then they may not commit this attack.\newline
+Backstab & A & 3 + Wep*2 & M (P)\newline ENC<EQP*2 & Move the character to the hex on the opposite side of that enemy. If the character cannot reach that tile, then they may not commit this attack.\newline
+Deal double \reftoit{Unblockable} and \reftoit{Unparryable} damage and inflict Knockdown to an adjacent enemy.\newline
 This is a Double action\\
 Critical Strike & A & X & - & Must spend 2D of equal score. Perform a Light Attack dealing double damage.\newline
 Does not require 1H for the Light Attack.\newline Counts as a single Dynamic action\\
@@ -1481,8 +1489,8 @@ Pull & A & Wep+1 & - & Attack any enemy within weapon range, and then move that 
 Pull Pavise & A & 3 & - & Unexhaust the Pavise Shield equipment and removes its tile of half-cover\\
 Pulverize & A & 5 & 2H M & Inflict 1 Breaking damage on an enemy within weapon range \\
 Puncture & A & Wep*2 & M (P) & Attack an enemy within weapon range with \reftoit{Unsinkable} damage\\
-Riposte & R & X & - & Functions the same as the Parry reaction, but also inflicts an immediate attack from \emph{any} currently held weapon on the active enemy.\newline The enemy must be within weapon range for the Riposte attack\\
-Set Aflame & A & Wep+2 & Lit weapon & Inflict Blazing on an enemy within weapon range\\
+Riposte & R & X & - & Functions the same as the Parry reaction, but also inflicts an immediate attack from \emph{any} currently held weapon on the active enemy.\newline The enemy must still be within weapon range for the Riposte attack\\
+Set Aflame & A & 2D & Lit weapon & Inflict Blazing on an enemy within weapon range that does not possess \emph{Shield Up!} \\
 Shieldbreak & A & Wep+ & 2H M & Inflict all of this attack’s damage to an enemy’s \emph{Shield Up!} token within weapon range.\newline Assign all damage to the \emph{Shield Up!} token regardless of the shield’s Defense value.\newline This damage may only be assigned to \reftoit{Shield Up!} and will not ‘bleed over’ after a \reftoit{Guard Break}\\
 Tinker & A & 2D & - & Clear 1 Durability \reftoit{sink} from any equipment. This may remove Broken\\
 Wild Swing & A & Wep+4 & 2H M (S,C) & Move 1-2 in a straight or snaking line.\newline After moving, attack three adjacent hexes in a half-moon pattern, centered in the direction of the last Move or one hex left or right of it. Inflict Knockback 1 and Knockdown on all enemies struck by this attack\\
@@ -1534,7 +1542,7 @@ Rondel\newline Dagger & 1 & 1 P & 1 & 1H & 1 & - & STR - 4|D\newline DEX - 5|C &
 \hline
 \rowcolor{white} \textbf{Weapon} & \textbf{SP} & \textbf{Dam} & \textbf{Wt} & \textbf{Hd} & \textbf{Rg} & \textbf{Dur} & \textbf{Stat Reqs} & \textbf{S.Attacks} & \textbf{Notes}\\
 \hline
-Seax & 1 & 1 S,P & 1 & 1H & 1 & 1 & STR - 4|D\newline DEX - 5|C & Cut,\newline Lunge & Coup De Grâce \refto{SP} cost is reduced to Wep\\
+Seax & 1 & 1 S,P & 1 & 1H & 1 & - & STR - 4|D\newline DEX - 5|C & Cut,\newline Lunge & Coup De Grâce \refto{SP} cost is reduced to Wep\\
 Stiletto & 1 & 1 P & 1 & 1H & 1 & - & STR - 3|D\newline DEX - 9|B & Backstab, Lunge, Puncture & Coup De Grâce \refto{SP} cost is reduced to Wep\\
 Tecpatl & 1 & 1 S,P & 1 & 1H & 1 & - & STR - 3|D\newline DEX - 3|D\newline FTH - 9|E & Backstab, Cut & Coup De Grâce \refto{SP} cost is reduced to Wep\newline If this weapon inflicts Bleeding, it also inflicts 1 Dark damage\\
 \hline
@@ -1567,7 +1575,7 @@ Odachi & 3 & 4 S,P & 3 & 2H & 1 & 2 & STR - 10|B\newline DEX - 9|C & Critical St
 Rapier & 2 & 2 S,P & 1 & 1H & 1 & - & STR - 6|D\newline DEX - 13|A & Flurry, Lunge, Riposte & Deals -1 damage for Slash attacks\\
 Saber & 2 & 2 S,P & 2 & 1H & 1 & 1 & STR - 7|C\newline DEX - 10|B & Cut,\newline Fend & N/A\\
 Scimitar & 2 & 2 S & 2 & 1H & 1 & 1 & STR - 7|C\newline DEX - 10|B & Flurry, Harry & N/A\\
-Shortsword & 2 & 2 S,P & 2 & 1H & 1 & 1 & STR - 7|C\newline DEX - 7|C & Flurry & N/A\\
+Shortsword & 2 & 2 S,P & 2 & 1H & 1 & - & STR - 6|C\newline DEX - 7|C & Flurry & N/A\\
 Shotel & 2 & 2 S & 2 & 1H & 1 & 1 & STR - 7|C\newline DEX - 10|B & Defeat Guard & N/A\\
 Tuck & 2 & 2 P & 2 & 1H & 1 & 1 & STR - 8|C\newline DEX - 10|B & Fend, Lunge & When two-handed, becomes a range 2 weapon\\
 Washing Pole & 4 & 5 S,P & 4 & 2H & 2 & 2 & STR - 13|A\newline DEX - 10|C & Critical Strike & Pierce attacks are range 3\newline Deals -1 damage for Pierce attacks\\
@@ -1606,10 +1614,10 @@ War Pick & 2 & 2 P & 2 & 1H & 1 & 2 & STR - 7|C\newline DEX - 4|D & Puncture & D
 \hline
 \rowcolor{white} \multicolumn{10}{l}{\textbf{Polearms}}\\
 \hline
-Bardiche & 3 & 4 S & 2 & 2H & 2 & 1 & STR - 10|B\newline DEX - 7|C & Cut & No 1H\\
-Billhook & 3 & 4 S,P & 2 & 2H & 2 & 1 & STR - 10|B\newline DEX - 8|C & Pull & If this weapon assigns any damage to \refto{HP} slots in a single attack, it also inflicts Dismounted.\newline No 1H\\
+Bardiche & 3 & 4 S & 3 & 2H & 2 & 1 & STR - 10|B\newline DEX - 7|C & Cut & No 1H\\
+Billhook & 3 & 4 S,P & 3 & 2H & 2 & 1 & STR - 10|B\newline DEX - 8|C & Pull & If this weapon assigns any damage to \refto{HP} slots in a single attack, it also inflicts Dismounted.\newline No 1H\\
 Doru & 3 & 3 P & 3 & 1H & 2-3 & 1 & STR - 9|C\newline DEX - 9|C & N/A & N/A\\
-Glaive & 3 & 4 S,P & 2 & 2H & 2 & 1 & STR - 10|B\newline DEX - 7|C & Fend & No 1H\\
+Glaive & 3 & 4 S,P & 3 & 2H & 2 & 1 & STR - 10|B\newline DEX - 7|C & Fend & No 1H\\
 \hline
 \end{tabularx}
 \end{center}
@@ -1621,12 +1629,12 @@ Glaive & 3 & 4 S,P & 2 & 2H & 2 & 1 & STR - 10|B\newline DEX - 7|C & Fend & No 1
 \hline
 \rowcolor{white} \textbf{Weapon} & \textbf{SP} & \textbf{Dam} & \textbf{Wt} & \textbf{Hd} & \textbf{Rg} & \textbf{Dur} & \textbf{Stat Reqs} & \textbf{S.Attacks} & \textbf{Notes}\\
 \hline
-Halberd & 4 & 5 S,P & 3 & 2H & 2 & 1 & STR - 13|A\newline DEX - 7|C & N/A & Sweep \refto{SP} cost is reduced to Wep+1.\newline Spin \refto{SP} cost is reduced to Wep+2.\newline No 1H\\
-Harpoon & 2 & 2 P & 1 & 1H & 2 & 1 & STR - 6|D\newline DEX - 7|C & N/A & All attacks have the effect of the Pull attack; cannot forgo using this effect\\
-Pike & 4 & 5 P & 3 & 2H & 2-4 & 1 & STR - 14|A\newline DEX - 8|C & N/A & No 1H\\
+Halberd & 4 & 5 S,P & 4 & 2H & 2 & 1 & STR - 13|A\newline DEX - 7|C & N/A & Sweep \refto{SP} cost is reduced to Wep+1.\newline Spin \refto{SP} cost is reduced to Wep+2.\newline No 1H\\
+Harpoon & 2 & 2 P & 2 & 1H & 2 & 1 & STR - 6|D\newline DEX - 7|C & N/A & All attacks have the effect of the Pull attack; cannot forgo using this effect\\
+Pike & 4 & 5 P & 4 & 2H & 2-4 & 1 & STR - 14|A\newline DEX - 8|C & N/A & No 1H\\
 Spear & 2 & 2 P & 2 & 1H & 2 & 1 & STR - 7|C\newline DEX - 7|C & N/A & N/A\\
-Trident & 3 & 4 P & 2 & 2H & 2 & 1 & STR - 9|C\newline DEX - 9|C & Puncture & N/A\\
-Voulge & 3 & 4 S,P & 2 & 2H & 2 & 1 & STR - 10|B\newline DEX - 6|D & Shieldbreak & No 1H\\
+Trident & 3 & 4 P & 3 & 2H & 2 & 1 & STR - 9|C\newline DEX - 9|C & Puncture & N/A\\
+Voulge & 3 & 4 S,P & 3 & 2H & 2 & 1 & STR - 10|B\newline DEX - 6|D & Shieldbreak & No 1H\\
 Quarterstaff & 1 & 2 C & 1 & 2H & 2 & - & STR - 6|C\newline DEX - 6|C & Riposte & Deals Crush damage, but may use the Pierce and Crush movesets (but not Thrust).\newline No 1H\\
 \hline
 \rowcolor{white} \multicolumn{10}{l}{\textbf{Axes}}\\
@@ -1698,7 +1706,7 @@ Man Catcher & 2 & 3 P & 3 & 2H & 2 & 1 & STR - 8|D\newline DEX - 7|E & Pull & If
 \rowcolor{white} \textbf{Weapon} & \textbf{SP} & \textbf{Dam} & \textbf{Wt} & \textbf{Hd} & \textbf{Rg} & \textbf{Dur} & \textbf{Stat Reqs} & \textbf{S.Attacks} & \textbf{Notes}\setcounter{rownum}{0}\\
 \hline
 Pickaxe & 2 & 2 P & 1 & 2H & 1 & 2 & STR - 8|D\newline DEX - 4|E & Puncture & Deals Pierce damage but uses the Crush moveset\\
-Sock Full of Rocks & 1 & 1 C & 1 & 1H & 1 & - & STR - 3|D\newline DEX - 4|D & Defeat Guard & \reftoit{Ephemeral}.\newline Overhead deals +1 damage\\
+Sock Full of Rocks & 1 & 1 C & - & 1H & 1 & - & STR - 3|D\newline DEX - 4|D & Defeat Guard & \reftoit{Ephemeral}\\
 Torch & 1 & 1 C & 1 & 1H & 1 & - & N/A & Light/Douse,\newline Set Aflame &  Must be lit to use Set Aflame.\newline Counts as a light source when lit\\
 Urumi & 2 & 2 S & 1 & 1H & 2-3 & - & STR - 5|E\newline DEX - 13|B & Cut,\newline Defeat Guard & If this weapon assigns any damage to \refto{HP} slots in a single attack, it also inflicts Bleeding.\newline Cannot commit Parry or Coup De Grâce\\
 Whip & 2 & 1 S & 1 & 1H & 2-3 & - & STR - 4|E\newline DEX - 8|C & Defeat Guard,\newline Pull & If this weapon assigns any damage to \refto{HP} slots in a single attack, it also inflicts 1 Bleed.\newline Cannot commit Parry or Coup De Grâce\\
@@ -1783,7 +1791,7 @@ Rotten Club & 2 & 2 C & 1 & 1H & 1 & - & STR - 6|C\newline DEX - 4|D & N/A & If 
 Royal Saber & 2 & 2 S,P & 1 & 1H & 1 & 1 & STR - 10|C\newline DEX - 16|S & Cut,\newline Defeat Guard,\newline Fend,\newline Harry,\newline Flurry, Lunge, Riposte, Puncture & N/A\\
 Stone Greatsword & 5 & 6 C & 5 & 2H & 2 & - & STR - 20|S\newline DEX - 4|E & Pulverize & Deals Crush damage, but may use the Slash and Pierce movesets.\newline Cannot be Broken\\
 Sun Bow & 2 & 1 & 1 & 2H & 2-8 & 1 & STR - 8|D\newline DEX - 8|B\newline FTH - 10|B & N/A & Ranged weapon.\newline Damage type dependent on missile (uses arrows).\newline Also inflicts 1 Smite damage; \refto{FTH} scaling increases this Smite damage, not damage\\
-Terrormaker & 4 & 5 S,P & 3 & 2H & 2 & 2 & STR - 14|A\newline DEX - 8|C & N/A & The Sweep and Spin attacks also inflict Fear\newline No 1H\\
+Terrormaker & 4 & 5 S,P & 4 & 2H & 2 & 2 & STR - 14|A\newline DEX - 8|C & N/A & The Sweep and Spin attacks also inflict Fear\newline No 1H\\
 Unstringable Bow & 4 & 3 & 2 & 2H & 2-10 & 2 & STR - 16|C\newline DEX - 8|B & N/A & Ranged weapon.\newline Damage type dependent on missile (uses giant arrows)\\
 Wicked Word & 2 & 2 S & 1 & 1H & 1 & 1 & STR - 8|C\newline DEX - 8|C\newline INT - 11|A\newline FTH - 11|A & Cut,\newline Harry & Also inflicts 1 Dark damage; \refto{INT}/\refto{FTH} scaling increases this Dark damage, not damage\\
 \hline
@@ -1815,13 +1823,13 @@ Wicked Word & 2 & 2 S & 1 & 1H & 1 & 1 & STR - 8|C\newline DEX - 8|C\newline INT
 Aegis of Colors & 2 & 6 & 1 C & 3 & 1 & STR - 7\newline INT - 10 & N/A & Increases \refto{F.DEF}, \refto{M.DEF}, \refto{D.DEF}, and \refto{L.DEF} by 1\\
 Aspis & 2 & 5 & 1 C & 2 & - & STR - 5 & N/A & N/A\\
 Blood-Smeared Shield & 2 & 6 & 1 C & 2 & 1 & STR - 7 & N/A & Increases \refto{RES} by 1\\
-Buckler & 1 & 4 & 1 C & 2 & 1 & STR - 6\newline DEX - 9 & Riposte & N/A\\
+Buckler & 1 & 4 & 1 C & 1 & 1 & STR - 6\newline DEX - 9 & Riposte & N/A\\
 Bulwark & 3 & 9 & 2 C & 4 & 2 & STR - 14 & N/A & Increases \refto{PS} by 1\\
 Crested Shield & 2 & 6 & 1 C & 2 & 1 & STR - 7 & N/A & Increases \refto{M.DEF} by 1\\
 Great Shield & 4 & 8 & 2 C & 5 & 2 & STR - 16 & N/A & N/A\\
 Heater Shield & 3 & 6 & 1 C & 3 & 1 & STR - 9 & N/A & N/A\\
 Heraldric Shield & 3 & 8 & 1 C & 3 & 2 & STR - 10 & N/A & N/A\\
-Hoplon & 3 & 8 & 1 C & 4 & 1 & STR - 11 & N/A & Do not place blocked damage from non-\reftoit{Magical} ranged attacks on \reftoit{Shield Up!}\\
+Hoplon & 3 & 8 & 1 C & 4 & 1 & STR - 10 & N/A & Do not place tokens from non-\reftoit{Magical} Physical ranged attacks on \reftoit{Shield Up!}\\
 Kite Shield & 2 & 6 & 1 C & 2 & 1 & STR - 7 & N/A & N/A\\
 \hline
 \end{tabularx}
@@ -1842,7 +1850,7 @@ Pavise Shield & 2 & 6 & 1 C & 3 & 1 & STR - 8 & Plant Pavise,\newline Pull\newli
 Radiant Symbol & 2 & 3 & 1 C & 1 & - & FTH - 7 & N/A & Adds 1 Stability for every 3 points of \refto{FTH} over 7.\newline \reftoit{Guard Break} does not cause Stun\\
 Redstone Shield & 2 & 6 & 1 C & 2 & 1 & STR - 7 & N/A & Increases \refto{F.DEF} by 1\\
 Rope-Tied Plank & 2 & 4 & 1 C & 2 & 1 & STR - 6 & N/A & N/A\\
-Round Shield & 2 & 5 & 1 C & 2 & 1 & STR - 8 & N/A & Do not place blocked damage tokens from non-\reftoit{Magical} ranged attacks on \reftoit{Shield Up!}\\
+Round Shield & 2 & 5 & 1 C & 2 & 1 & STR - 7 & N/A & Do not place tokens from non-\reftoit{Magical} Physical ranged attacks on \reftoit{Shield Up!}\\
 Searing Aegis & 2 & 6 & 1 C & 3 & 1 & STR - 9 & N/A & If this shield blocks 2 damage from a single attack, inflict 1 Burn damage on the attacker\\
 Shielded Bracer & 1 & 3 & 1 C & 1 & - & STR - 7 & N/A & Does not require a hand token.\newline Cannot block ranged attacks.\newline May be used in conjunction with a two-handed weapon, or dual wielding, but not another shield\\
 \hline
@@ -1857,7 +1865,7 @@ Shielded Bracer & 1 & 3 & 1 C & 1 & - & STR - 7 & N/A & Does not require a hand 
 \rowcolor{white} \textbf{Shield} & \textbf{Def} & \textbf{Stab} & \textbf{Dam} & \textbf{Wt} & \textbf{Dur} & \textbf{Stat Reqs} & \textbf{S.Attacks} & \textbf{Notes}\setcounter{rownum}{0}\\
 \hline
 Targe & 2 & 5 & 1 C & 2 & 1 & STR - 7 & N/A & Use normal Move value when committing Move while \reftoit{Shield Up!} is present\\
-Tower Shield & 3 & 8 & 1 C & 4 & 2 & STR - 10 & N/A & N/A\\
+Tower Shield & 3 & 8 & 1 C & 4 & 2 & STR - 9 & N/A & N/A\\
 Unnerving Visage & 2 & 5 & 1 C & 1 & 1 & STR - 6\newline INT - 10\newline FTH - 10 & N/A & When committing a Parry, inflict Bleeding on the active enemy\\
 Welded Buckler \& Fighting Knife & 1 & 4 & 1 C & 2 & 1 & STR - 7\newline DEX - 9 & Riposte & Also functions as the weapon ‘Fighting Knife’\\
 \hline
@@ -2124,7 +2132,7 @@ Giant Arrow & Bow & 2 P &  - & 3 & Inflict Knockback 2 and Knockdown\newline Can
 Angon & 1 & No & 1 & Inflict \reftoit{Guard Break} on a target within 2-4 hexes, or if no \reftoit{Shield Up!} token is present inflict 2 Pierce ranged damage\\
 Antidote & 4 & Yes & - & Clear all unassigned Poison damage tokens \\
 Bandages & 2 & No & - & Clear all unassigned Bleeding/Bleed tokens \\
-Bolas & 2 & No & 1 & Inflict 1 Crush ranged damage and Hobbled to an enemy within 2-4 hexes\\
+Bolas & 2 & No & 1 & Inflict 1 Crush ranged damage and Slowed to an enemy within 2-4 hexes\\
 Brightstones & 3 & No & - & Remove darkness from the encounter for 1 Round\\
 Charcoal Rub & - & No & - & Reveal hidden messages\\
 Crackling Resin & 1 & Yes & - & Add 2 Smite damage to any melee weapon’s attacks for 2 Rounds \\
@@ -2455,6 +2463,15 @@ Enjoy your game!\\
 \pagebreak
 
 \section{Version History}
+\subsubsection*{5/5/2021 - 1.0}
+\begin{itemize}
+\item Complete and serviceable corebook release
+\item Sprint no longer requires a straight or snaking line
+\item The implicit Move of \reftoit{Dodge!} is no longer optional
+\item Bleed is no longer trickling damage
+\item Increased \refto{SP} cost of \reftoit{Dodge!}
+\item More rebalancing following \emph{Everloyal} playtesting
+\end{itemize}
 \subsubsection*{4/29/2021 - 0.99}
 \begin{itemize}
 \item Walked back some of the non-linear timeline concept. This would be specific to the scenario, not the corebook
@@ -2463,10 +2480,14 @@ Enjoy your game!\\
 \item Added table of content entries for more sections
 \item More enemy behavior clarifications
 \item Juke is no longer a default action
-\item Removed Opportunistic Attacks as a default action
-\item Flurry only attacks twice
+\item Removed Opportunistic Attacks as a default action (now it’s Fend)
+\item Flurry now only attacks twice
 \item Edited the Quick Reference Sheet for clarity
-\item Another major rebalancing run after \emph{Everloyal} playthroughs
+\item Move is now more limited based on encumbrance
+\item Bash increased to Wep+2
+\item Undead and Hollows cannot be Stunned
+\item Set Aflame is now a Double action and cannot bypass shields
+\item Major rebalancing run after \emph{Everloyal} playthroughs
 \end{itemize}
 \subsubsection*{2/15/2021 - 0.98}
 \begin{itemize}
