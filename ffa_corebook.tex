@@ -743,7 +743,7 @@ The result of this system is that enemy behavior is semi-predictable. The player
 \vfill
 
 \begin{tcolorbox}
-\textbf{Note:} Lastly, this system was designed cognizant of the fact that the player will be controlling their own opponents, and that the player will encounter situations where they can make decisions for their opponents that are beneficial to their character. This is perfectly fine, \emph{so long as those moves are legal and sensible}. Controlling enemies is as much a part of the game’s strategy as is controlling the character--in fact, some encounters might be based around it!
+\textbf{Note:} Lastly, this system was designed cognizant of the fact that the player will be controlling their own opponents, and that the player will encounter situations where they can make decisions for their opponents that are beneficial to their character. This is perfectly fine, \emph{so long as those moves are legal and sensible}. Controlling enemies is as much a part of the game’s strategy as controlling the character--in fact, some encounters might be based around it!
 \end{tcolorbox}
 
 \vfill
@@ -1398,7 +1398,7 @@ A Free action does not count toward a \emph{beat’s} action minimum or action l
 \rowcolor{white} \textbf{Action} & \textbf{Type} & \textbf{SP} & \textbf{Requires} & \textbf{Effect}\setcounter{rownum}{0}\\
 \hline
 \emph{Drop!} & A & F & - & Place an \reftoit{Inevitable} Knockdown token on the status sheet\\
-Lower Shield & A & F & \emph{Shield Up!} & Remove \emph{Shield Up!}\\
+Lower Shield & A & F & \reftoit{Shield Up!} & Remove \reftoit{Shield Up!}\\
 Swap Equipment & A & F & - & Swap hand tokens to any combination of hand slots on the character sheet.\newline
 Do not remove \reftoit{Shield Up!} if the same shield is still equipped.\newline
 This action can be used to two-hand or free hand a single weapon.\newline
@@ -1677,7 +1677,7 @@ Heavy\newline Crossbow & 1 & 2 & 3 & 2H & 7 & 1 & STR - 10|E\newline DEX - 8|C\n
 Light\newline Crossbow & 1 & 1 & 2 & 2H & 6 & 1 & STR - 8|E\newline DEX - 8|C\newline INT - 6|E & N/A & Loadable ranged weapon.\newline Damage type dependent on missile (uses bolts)\\
 Longbow & 3 & 2 & 2 & 2H & 2-8 & 1 & STR - 10|D\newline DEX - 9|B & N/A & Ranged weapon.\newline Damage type dependent on missile (uses arrows)\\
 Recurve Bow & 2 & 1 & 2 & 2H & 2-6 & 1 & STR - 7|D\newline DEX - 9|B & N/A & Ranged weapon.\newline Damage type dependent on missile (uses arrows)\\
-Short Bow & 2 & - & 1 & 2H & 2-5 & - & STR - 5|D\newline DEX - 6|C & N/A & Ranged weapon.\newline Damage and damage type dependent on missile (uses arrows)\\
+Shortbow & 2 & - & 1 & 2H & 2-5 & - & STR - 5|D\newline DEX - 6|C & N/A & Ranged weapon.\newline Damage and damage type dependent on missile (uses arrows)\\
 Sling & 1 & 1 C & 1 & 1H & 2-5 & - & STR - 4|D\newline DEX - 6|C & N/A & Ranged weapon.\newline Does not require missiles or a quiver.\newline Can commit Draw \& Fire one-handed\\
 Staff Sling & 2 & 2 C & 2 & 2H & 2-6 & - & STR - 5|D\newline DEX - 6|C & N/A & Ranged weapon.\newline Does not require missiles or a quiver\\
 \hline
@@ -2203,10 +2203,10 @@ Guts are fighting techniques and stances that can give a warrior a much-needed e
 \hline
 Adrenaline Surge & END: 9 & 2 & 3 & F & Take 1 additional Simple action this \emph{beat}\\
 Blitz & DEX: 8\newline END: 8 & 1 & 4+ & 2D & Move 2-3 in a straight or snaking line.\newline After moving, commit a charging-type Heavy Attack.\newline This Heavy Attack is overspent with \refto{FP} instead of \refto{SP}. Inflict Knockback 1 and Knockdown on the enemy struck by this attack.\\
-Brace & STR: 10\newline END: 8 & 1 & 3+ & F & Remove 1+ damage tokens from \reftoit{Shield Up!}\\
+Brace & STR: 8\newline END: 8 & 1 & 3+ & F & Remove 1+ damage tokens from \reftoit{Shield Up!}\\
 Cat Stance & DEX: 9 & 1 & 2 & F & \emph{Reaction.} Character performs \emph{Get Up!} for free at the end of the \emph{counterbeat.}\newline Activating this attunement is done at the start of the \emph{counterbeat}, and does not use the reaction for any attacks\\
 Desperate Struggle & END: 14 & 2 & 5 & F & \emph{Either.} The character cannot be defeated this Round. The character is defeated at the start of next Round \\
-Dirty Trick & INT: 9 & 1 & 4 & 2 & \emph{Reaction}. Inflict Blinded on the active enemy after it moves within 2 hexes and cancel its Turn\\
+Dirty Trick & INT: 9 & 1 & 4 & 3 & \emph{Reaction}. Inflict Blinded on the active enemy after it moves within 2 hexes \\
 \hline
 \end{tabularx}
 \end{center}
@@ -2246,7 +2246,7 @@ Slink & DEX: 12 & 1 & 3 & F & Place the character on the opposite hex of an adja
 Shielded Run & END: 9 & 1 & 3 & 2D & Functions the same as the Sprint action but does not remove \reftoit{Shield Up!}\\
 Stomp & STR: 8 & 1 & 2 & 3 & Deal 2 \reftoit{Unsinkable} Crush damage and inflicts Stun on a knocked down enemy.\newline This is a Simple action\\
 Strikeback & DEX: 12\newline END: 10 & 2 & 2 & X & \emph{Reaction}. Functions the same as Fend with Wep*2 \refto{SP} cost\\
-Taunt & INT: 9 & 1 & 3 & 1D & 1 \emph{Intelligent} enemy within 5 hexes removes \reftoit{Shield Up!} and makes an immediate Move towards the character \\
+Taunt & INT: 9 & 1 & 3 & 1D & 1 \emph{Intelligent} enemy within 4 hexes removes \reftoit{Shield Up!} and makes an immediate Move towards the character \\
 Tough\newline as Nails & VIT: 10 & 2 & 4 & F & Remove all Bleeding tokens and unassigned Bleed from the character sheet\\
 Trick Shot & DEX: 14\newline INT: 9 & 1 & 3 & Wep & Commit the Draw \& Fire attack ignoring other entities and full-cover obstacles. Subtract 1 from max range.\newline This attack is affected by Take Aim\\
 Trip & DEX: 12 & 1 & 4 & 4 & \emph{Reaction}. Inflict Knockdown on the active enemy after it moves adjacent to the character. If the active enemy is afflicted by the Knockdown, cancel their Turn\\
@@ -2371,7 +2371,7 @@ Guidance & FTH: 13 & 1 & 4 & 2 & Increases the range of all non-\emph{Magical} r
 Healing & FTH: 10 & 1 & 4+ & 2D & Remove \refto{PWR}+ damage tokens from the character’s \refto{HP} slots \\
 Hope & FTH: 10 & 1 & 2 & 2 & Summons a light source until the next \reftoit{short reprieve}. Character also gains 1 \refto{D.DEF} \\
 Hurl Lightning & FTH: 12 & 1 & 2+ & 4 & Deal \refto{PWR}+ Smite ranged damage on an enemy within 7 hexes \\
-Mercy & FTH: 15 & 2 & 4 & 4 & Remove Bleeding and any unassigned damage tokens from the character sheet \\
+Mercy & FTH: 15 & 2 & 4 & 3 & Remove Bleeding and any unassigned damage tokens from the character sheet \\
 Purity & FTH: 16 & 1 & 4 & F & Character gains 3 \refto{D.DEF} for 2 Rounds \\
 Rescue & FTH: 12 & 1 & 6 & 2 & The character moves instantly to any available escape tile. If no escape tiles are present in the encounter, the character may Move 5 ignoring any enemies or hazard tiles \\
 \hline
