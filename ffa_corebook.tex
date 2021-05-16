@@ -708,8 +708,8 @@ Enemies may have special types applied to them, such as \emph{Undead} or \emph{I
 
 \textbf{Intelligent:} This entity is either human or possesses a human-like intelligence. \emph{Intelligent} enemies will also \emph{Drop!} and \emph{Roll!} away from the character if they are Blazing at the start of their \emph{counterbeat.}\\
 
-\textbf{Large:} This entity occupies 2 tiles (head and tail) and ignores normal Knockback and Knockdown sources.\\
-For committing Move, the head tile is moved first and then the tail tile is filled-in behind the head, opposite its movement or attack direction. Turning (i.e: just moving the tail) will still use a point of the entity’s Move value.\\
+\emph{Large:} This entity occupies two distinct tiles, represented by head and tail tokens, and ignores normal Knockback and Knockdown sources.\\
+For movement, the designated tile is moved first and then the other tile is filled-in behind it, opposite the direction of the attack or last Move. Turning (i.e: just pivoting the tail around the head) will still use a point of Move.\\
 Both of this entity’s occupied hexes can sustain AoE damage.\\
 There are some attacks that specifically originate from the head or tail, and use that tile to determine range. If an attack does not specify a head or tail tile, then it may originate from either.\\
 If using coinage for entity tokens, the head and tail tile can easily be distinguished using those selfsame sides of the coins.\\
